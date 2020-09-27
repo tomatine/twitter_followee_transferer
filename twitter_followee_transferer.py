@@ -10,16 +10,9 @@ api = tweepy.API(auth,wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
 pre_follower = {id for id in tweepy.Cursor(api.followers_ids, screen_name=pre_screen_name).items()}
 pre_followee = {id for id in tweepy.Cursor(api.friends_ids, screen_name=pre_screen_name).items()}
 post_followee = {id for id in tweepy.Cursor(api.friends_ids, screen_name=post_screen_name).items()}
+outgoing=set(api.friendships_outgoing())#フォロー許可待ちの集合
 
-print(pre_followee)
-print(len(pre_followee))
-print(pre_follower)
-print(len(pre_follower))
-print(post_followee)
-print(len(post_followee))
-
-target_for_transfer = pre_followee - pre_follower - post_followee
-print(target_for_transfer)
+target_for_transfer = pre_followee - pre_follower - post_followee - outgoing
 print(len(target_for_transfer))
 
 for id in target_for_transfer:
