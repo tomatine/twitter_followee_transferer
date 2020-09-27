@@ -1,3 +1,5 @@
 credential.py
+settings.py
 APIsecrets.txt
 *cache*
+*test*
