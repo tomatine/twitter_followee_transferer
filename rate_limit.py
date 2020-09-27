@@ -1,10 +1,11 @@
 import tweepy
+import time
 import json
-from credential import CK, CS, AT, AS
+from credential import post_CK, post_CS, post_AT, post_AS
 from settings import pre_screen_name,post_screen_name
 
-auth = tweepy.OAuthHandler(CK,CS)
-auth.set_access_token(AT,AS)
+auth = tweepy.OAuthHandler(post_CK,post_CS)
+auth.set_access_token(post_AT,post_AS)
 
 api = tweepy.API(auth)
 
