@@ -19,5 +19,4 @@ print(len(target_for_remove))
 
 for id in target_for_remove:
     api.destroy_friendship(id=id)
-    print(pre_screen_name + ' unfollowed ' + api.get_user(id=id).screen_name)
-    time.sleep(10)
+    print(pre_screen_name + ' unfollowed ' + api.get_user(id=id).name)
